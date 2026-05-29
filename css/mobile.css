@@ -1,0 +1,319 @@
+/* ============================================
+   Weekly Planner - Mobile / Responsive Styles
+   mobile.css
+   ============================================ */
+
+/* ============================================
+   Smartphone (768px以下)
+   ============================================ */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+
+  /* --- Header --- */
+  #app-header {
+    padding: 0 12px;
+    height: 52px;
+  }
+
+  .header-title {
+    font-size: 1rem;
+  }
+
+  .user-name {
+    display: none;
+  }
+
+  .logout-text {
+    display: none;
+  }
+
+  .btn-logout {
+    padding: 6px 8px;
+  }
+
+  /* --- Week Navigation --- */
+  #week-nav {
+    padding: 0 8px;
+    gap: 4px;
+    height: 48px;
+  }
+
+  .nav-btn-text {
+    display: none;
+  }
+
+  .nav-btn {
+    padding: 8px 10px;
+    min-width: 36px;
+    justify-content: center;
+  }
+
+  .week-label {
+    font-size: 0.82rem;
+    min-width: auto;
+  }
+
+  .btn-today {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+  }
+
+  /* --- Day Tabs (Show on Mobile) --- */
+  #day-tabs {
+    display: flex;
+  }
+
+  /* --- PC Grid (Hide on Mobile) --- */
+  #schedule-container {
+    display: none;
+  }
+
+  /* --- Mobile Day View (Show on Mobile) --- */
+  #mobile-day-view {
+    display: flex;
+  }
+
+  /* --- FAB --- */
+  #add-schedule-fab {
+    bottom: 20px;
+    right: 20px;
+    width: 52px;
+    height: 52px;
+  }
+
+  /* --- Login --- */
+  .login-card {
+    padding: 36px 24px;
+    border-radius: var(--radius-lg);
+  }
+
+  .login-title {
+    font-size: 1.6rem;
+  }
+
+  .login-description br {
+    display: none;
+  }
+
+  /* --- Modal --- */
+  .modal-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .modal-content {
+    max-height: 90vh;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    animation: modalSlideUp 0.3s ease;
+  }
+
+  @keyframes modalSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* --- Toast --- */
+  #toast-container {
+    top: auto;
+    bottom: 80px;
+    right: 12px;
+    left: 12px;
+  }
+
+  .toast {
+    min-width: auto;
+    max-width: none;
+  }
+}
+
+/* ============================================
+   Touch-specific styles
+   ============================================ */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets */
+  .day-tab {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .nav-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .mobile-schedule-item {
+    padding: 16px;
+  }
+
+  /* Remove hover effects on touch devices */
+  .schedule-item:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .mobile-schedule-item:hover {
+    background: var(--bg-surface);
+    border-color: var(--border-color);
+  }
+
+  /* Long-press visual feedback */
+  .mobile-schedule-item.long-press {
+    background: var(--bg-surface-hover);
+    transform: scale(1.02);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+/* ============================================
+   Swipe navigation container
+   ============================================ */
+#mobile-day-view {
+  touch-action: pan-y;
+  position: relative;
+}
+
+#mobile-day-view.swiping {
+  transition: transform 0.3s ease;
+}
+
+/* ============================================
+   Landscape phone
+   ============================================ */
+@media (max-width: 768px) and (orientation: landscape) {
+  #mobile-day-view {
+    height: calc(100vh - 52px - 48px - 48px);
+  }
+
+  .modal-content {
+    max-height: 95vh;
+  }
+}
+
+/* ============================================
+   Small phones (375px以下)
+   ============================================ */
+@media (max-width: 375px) {
+  html {
+    font-size: 13px;
+  }
+
+  .day-tab {
+    min-width: 36px;
+    padding: 6px 2px;
+    font-size: 0.85rem;
+  }
+
+  .login-card {
+    padding: 28px 18px;
+  }
+
+  .login-features li {
+    font-size: 0.82rem;
+  }
+}
+
+/* ============================================
+   Tablet (769px ~ 1024px)
+   ============================================ */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .time-header-cell,
+  .time-column {
+    width: 50px;
+    min-width: 50px;
+  }
+
+  .time-label {
+    font-size: 0.65rem;
+  }
+
+  .schedule-item .item-title {
+    font-size: 0.72rem;
+  }
+
+  .schedule-item .item-time {
+    font-size: 0.62rem;
+  }
+}
+
+/* ============================================
+   Large screens (1440px以上)
+   ============================================ */
+@media (min-width: 1440px) {
+  .time-header-cell,
+  .time-column {
+    width: 72px;
+    min-width: 72px;
+  }
+
+  .schedule-item .item-title {
+    font-size: 0.85rem;
+  }
+
+  .schedule-item .item-time {
+    font-size: 0.75rem;
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+  #loading-screen,
+  #login-screen,
+  #add-schedule-fab,
+  #toast-container,
+  .modal-overlay,
+  .btn-logout,
+  .btn-today,
+  .nav-btn {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    overflow: visible;
+  }
+
+  #app-header {
+    background: #fff;
+    border-bottom: 2px solid #000;
+    color: #000;
+  }
+
+  .header-title {
+    -webkit-text-fill-color: #000;
+    color: #000;
+  }
+
+  #schedule-container {
+    height: auto;
+    overflow: visible;
+  }
+
+  .schedule-item {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
+
+/* ============================================
+   Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
